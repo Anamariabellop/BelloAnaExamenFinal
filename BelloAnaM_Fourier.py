@@ -33,6 +33,7 @@ for i in range(n):
         
 
 # SU GRAFICA
+inversafiltro= np.fft.ifft(parafiltro)
 
 plt.figure()
 
@@ -43,10 +44,11 @@ plt.xlabel("t(s)")
 plt.ylabel("Amplitud")
 
 plt.subplot(2,1,2)
-plt.plot(t,ifft(parafiltro), color="darkblue", label="filtrada")
+plt.plot(t,inversafiltro)
 plt.title("Senial filtrada")
 plt.xlabel("t(s)")
 plt.ylabel("Amplitud")
+plt.subplots_adjust(hspace=0.5)
 
 plt.savefig("filtro.pdf")
 
