@@ -44,7 +44,7 @@ def MCMC(xini,yini,xobser,yobser,iteraciones,sigma):
     for i in range(iteraciones):
         xnuevo= np.random.normal(x[i],sigma)
         ynuevo= np.random.normal(y[i],sigma)
-        rnuevo=np.random.normal(Racep[i],sigma)
+        rnuevo=np.random.normal(racep[i],sigma)
         Lnuevo= np.random.normal(L[i],sigma)
       
         alpha= verosimilitud(radio,rnuevo)/verosimilitud(radio,racep[i])
@@ -73,10 +73,16 @@ def MCMC(xini,yini,xobser,yobser,iteraciones,sigma):
     return x,y,racep,L
                 
 
+"""indice= np.argmax(MCMC(xini,yini,xobs,yobs,10000,0.01)[3])
+xs= MCMC(xini,yini,xobs,yobs,10000,0.01)[0]
+ys= MCMC(xini,yini,xobs,yobs,10000,0.01)[1]
+best_x=xs[indice]
+best_y=ys[indice]
 
-#fig, ax = plt.subplots()
-#plt.axis('equal')
-#circle1 = plt.Circle((best_x, best_y), np.max(r_walk), color='r',fill=False)
-#ax.add_artist(circle1)
-#plt.savefig("Canal.png")
-#plt.close()
+
+fig, ax = plt.figure()
+plt.axis('equal')
+circle1 = plt.Circle((best_x, best_y), np.max(r_walk), color='r',fill=False)
+ax.add_artist(circle1)
+plt.savefig("Canal.png")
+plt.close()"""
