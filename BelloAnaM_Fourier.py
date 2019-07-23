@@ -29,9 +29,29 @@ for i in range(n):
         parafiltro[i]=0
     else:
         parafiltro[i]=parafiltro[i]
+
         
 
 # SU GRAFICA
+
+plt.figure()
+
+plt.subplot(2,1,1)
+plt.plot(t,amp, color= "cyan", label= "original")
+plt.title("Senial original")
+plt.xlabel("t(s)")
+plt.ylabel("Amplitud")
+
+plt.subplot(2,1,2)
+plt.plot(t,ifft(parafiltro), color="darkblue", label="filtrada")
+plt.title("Senial filtrada")
+plt.xlabel("t(s)")
+plt.ylabel("Amplitud")
+
+plt.savefig("filtro.pdf")
+
+
+
 
 
 # Puede usar los siguientes paquetes:
